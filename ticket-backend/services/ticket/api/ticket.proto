@@ -1,0 +1,63 @@
+syntax = "proto3";
+
+package api;
+
+option go_package = "github.com/muniker/halen-api/services/ticket/gen/go/api;api";
+
+import "google/api/annotations.proto";
+
+message Ticket {
+  int64 id = 1;
+  string customer_name = 2;
+  string email = 3;
+  string created_at = 4; // ISO string
+  string status = 5; // "open" | "pending" | "done"
+  string notes = 6;
+}
+
+message ListTicketsRequest {
+  int32 limit = 1;
+  int32 offset = 2;
+}
+
+message GetTicketRequest {
+  int64 id = 1;
+}
+
+message ListTicketsResponse {
+  repeated Ticket tickets = 1;
+  int32 total = 2;
+}
+
+message UpdateTicketRequest {
+  int64 id = 1;
+  string status = 2;
+  string notes = 3;
+}
+
+message UpdateTicketResponse {
+  Ticket updated_ticket = 1;
+}
+
+service TicketService {
+  rpc GetTicket(GetTicketRequest) returns (Ticket) {
+    option (google.api.http) = {
+      get: "/tickets/{id}"
+    };
+  }
+
+  rpc ListTickets(ListTicketsRequest) returns (ListTicketsResponse) {
+    option (google.api.http) = {
+      get: "/tickets"
+    };
+  }
+
+  rpc UpdateTicket(UpdateTicketRequest) returns (UpdateTicketResponse) {
+    option (google.api.http) = {
+      patch: "/tickets/{id}"
+      body: "*"
+    };
+  }
+}
+
+
