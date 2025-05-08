@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+docker compose down
 
 echo "🚀 Running tests in Docker..."
 
