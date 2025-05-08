@@ -30,7 +30,7 @@ My third choice was around the API API Protocol. I chose gRPC with gRPC-Gateway 
 - Produce OpenAPI specs for tooling and validation
 
 
-Lastly, I considere storage. Since this is a transactional system with structured data (tickets), I went with PostgreSQL.
+Lastly, I consider storage. Since this is a transactional system with structured data (tickets), I went with PostgreSQL.
 
 
 #### Fronent
