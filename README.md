@@ -1,23 +1,23 @@
 # ticket-system
 
 
-#### How to run
+### How to run
 
 1. Run ```docker compose build && docker compose up```
 2. Go to localhost:3000
 
-#### How to test
+###  How to test
 
 Run ```chmod +x ./test.sh && ./test.sh```
 
 
-#### 👋 About Me
+### 👋 About Me
 
 I’m a senior engineer who’s worked across several teams leading the design and delivery of scalable, cloud-native applications. I have a strong background in distributed sytems, cloud infrastructure, and security for both containerized and serverless architectures.
 
-#### Technical choices
+### Technical choices
 
-### Backend
+#### Backend
 
 My first technical choice for this project was choosing between serverless and containerized (Kubernetes) architecture. While serverless works well for event-driven workloads and would be suitable for a ticketing system, Halen is a more complex application with high-throughput services like ridesharing, delivery, and logistics. These typically require long lived services, tight network control, and advanced orchestration. All of which are better suited to Kubernetes.
 
@@ -33,13 +33,13 @@ My third choice was around the API API Protocol. I chose gRPC with gRPC-Gateway 
 Lastly, I considere storage. Since this is a transactional system with structured data (tickets), I went with PostgreSQL.
 
 
-### Fronent
+#### Fronent
 The frontend was a straightforward choice given my experience with Nextjs + React and its ability to handle:
 - Fast development with file-based routing
 - API integration via REST
 - Scalable UI component using Tailwind CSS
 
-#### Next Steps
+### Next Steps
 
 The next step would be to productionalize and secure the application in a cloud environment.
 
